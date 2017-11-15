@@ -1,0 +1,94 @@
+body{
+    /*background-color:#f9f9f9;*/
+    background: #eeeeee url("/uz/images/background.png") repeat scroll 0 0; 
+}
+#block-body{
+    width: 100%;
+  /*  height: 180px;
+   border: 1px solid #ccc;*/
+    margin: 0  auto;
+  /*  background-color: #C0E3F6;*/
+}
+#block-header{
+    width: 100%;
+   
+    background-image: url("/uz/images/logo.jpg");
+    margin-top: 5px;
+  /*  position: relative;*/
+}
+.login_select{
+    margin-left: 25px;
+}
+.login_select ul li {
+   float:  left;
+    margin-left: 20px;
+     /*   color: #fff;	*/
+    margin-top: 5px;
+}    
+.login_select ul li a{
+         color: #fff;	
+}    
+#klient,#Chiqish {
+   display: none;
+}
+#Chiqish{
+	cursor: pointer;
+	color: #fff;
+}
+.login_select ul li span{
+      color: #fff;
+      font:  16px "Trebuchet MS", tahoma, verdana, arial narrow,    arial;  
+  }
+
+.lang_select{
+    float: right;
+    margin-right: 20px;
+}
+
+.lang_select ul li{
+ float:  left; 
+ margin-left: 20px;
+  margin-top: 5px;
+}
+
+.lang_select .active_lang span{
+    color: #ccc;
+   /* cursor: text;*/
+}
+.lang_select ul li span{
+      color: #fff;    
+    }
+
+#body{
+    width:1200px;
+    overflow:hidden;
+    float: right;
+    margin-top: 10px;
+  }
+#block-left{
+ margin: 10px;
+ background-color: #C0E3F6; /* #EAF8FF;*/ 
+    width: 300px;
+    height: auto;   
+}
+#block-content{
+color: #000000;
+text-align: justify;
+padding: 0px 22px 20px 22px;
+vertical-align: top;	
+font:15px "Trebuchet MS", tahoma, verdana, arial narrow,    arial; 
+width: 1200px;
+background-color:#fff;
+border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+#block-footer{
+    width: 1200px;
+    height: 160px;
+    background-image: url(/uz/images/footer.jpg);	
+    margin: 5px auto;
+    float: right;
+}
+
+

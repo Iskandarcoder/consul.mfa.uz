@@ -1,0 +1,798 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+	       <meta http-equiv="Content-Type" content="text/html; charset=windows-1251"/>
+    <link type="text/css" href="css/ui-lightness/jquery-ui-1.8.4.custom.css"  rel="stylesheet" />
+		<script type="text/javascript" src="js/jquery.js"></script>
+	<script src="js/jquery-ui-1.8.6.custom.js" type="text/javascript"></script>
+	<script src="js/jquery-ui-1.8.4.custom.min.js" type="text/javascript"></script>
+   	<script src="js/jquery.ui.datepicker-ru.js" type="text/javascript"></script>
+
+    <link rel="stylesheet" type="text/css" href="captcha/captcha.css">
+
+	<link rel="stylesheet" href="css/style1.css" type="text/css" media="screen"/>
+     <script type="text/javascript" src="js/jquery.form.js"></script>
+     <script type="text/javascript" src="js/sliding.form.js"></script>
+      <script type="text/javascript" src="js/ajaxupload.js"></script>
+<link rel="stylesheet" type="text/css" href="css/latest.css">
+<link rel="stylesheet" type="text/css" href="css/keyboard.css">
+    <script type="text/javascript" src="js/keyboard.js"></script>
+   <script type="text/javascript" src="js/jquery.simplemodal-1.3.5.js"></script>
+   <link rel="stylesheet" type="text/css" href="css/confirm.css" media='screen'>
+
+   </head>
+    <style>
+        span.reference{
+            position:fixed;
+            left:5px;
+            top:5px;
+            font-size:10px;
+            text-shadow:1px 1px 1px #fff;
+        }
+        span.reference a{
+            color:#555;
+            text-decoration:none;
+			text-transform:uppercase;
+        }
+        span.reference a:hover{
+            color:#000;
+
+        }
+        h2{
+            //color:#ccc;
+            font-size:20px;
+            text-shadow:1px 1px 1px #fff;
+            padding:5px;
+        }
+		.block1 {
+	width: 100px;
+	height: 130px;
+	background: #eee;
+	margin-top: 10px;
+	  -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    outline: none;
+	padding: 2px;
+	padding-right: 2px;
+	border: solid 1px #ccc;
+	float: left;
+	align:center;
+   }
+   	.block2 {
+	width: 460px;
+/*	height: 350px;*/
+	float: left;
+   }
+      	.block3 {
+	width: 100px;
+	height: 200px;
+	float: left;
+   }
+     .select {
+    color: maroon; /* Цвет текста */
+    font-weight: 600; /* Жирное начертание */
+    text-align:center;
+ }
+  </style>
+<?php
+	include("function.php");
+	include("db.php");
+	$query="SELECT * FROM anketa where barcode='".$_GET['id']."'";
+	$sql=mysql_query($query);
+	$row=mysql_fetch_array($sql);
+	$fam=$row['fam'];
+	$ism=$row['ism'];
+	$sharif=$row['sharif'];
+	$arr=getSana($row['tugkun']);	
+	$tyear=$arr[0];
+	$tday=$arr[2];
+	$vid=getSana($row['vidan']);
+	$sr=getSana($row['srok']);
+	$kun=getSana($row['kun']);
+	$vozv=getSana($row['vozvrat']);
+	$deti_r1=getSana($row['data_rojd']);
+	$deti_r2=getSana($row['data_rojd2']);
+	$deti_r3=getSana($row['data_rojd3']);
+	$data_ro=getSana($row['data_ro']);	
+	$data_rm=getSana($row['data_rm']);
+	$deti_rs=getSana($row['data_rs']);
+?>
+    <body>
+        <div id="content">
+            <h2>Ввод личных данных для подготовки документов для получения сертификата на возвращение  </h2>
+            <br>
+         <div id="wrapper1">
+         <div id="steps">
+             <form id="formElem" name="formElem" action="" method="post">
+                <fieldset class="step">
+                  <legend>Основные данные</legend>
+			 <div class="block2" >
+                    <p class="sh1">
+                    <label for="fam">Фамилия</label>
+<?php                   
+echo "<input id='fam' name='fam' value='".$fam. "'/>";
+?>
+                  </p>
+                    <p class="sh1">
+                    <label for="ism">Имя</label>
+<?php                   
+echo "<input id='ism' name='ism' value='".$ism. "'/>";
+?>
+                  </p>
+                    <p class="sh1">
+                    <label for="sharif">Отчество</Label>
+<?php                   
+echo "<input id='sharif' name='sharif' value='".$sharif. "'/>";
+?>
+                  </p>
+                    <p class="sh1">
+                    <label for="millat">Национальность</label>
+                    <input id="millat" name="millat" <?php echo 'value="'.$row['millat'].'"'; ?> type="text"  />
+                  </p>
+                    <p class="sh1">
+                    <label for="tugkun">Дата рождения</label>
+<?php
+                   echo '<input name="tugkun" type="text" id="birthDay" value="'.$tday.'" size="3">';
+
+                    echo '<select name="tugoy" id="tugoy">';
+		    for ($i=1;$i<=12;$i++)
+		{	
+			$a=sprintf("%02s",$i);
+		if ($a==$arr[1])
+		{
+		    echo '<option selected="selected" value="'.$a.'">'.getMonth($i).'</option>';	
+		}
+		else {
+		    echo '<option value="'.$a.'">'.getMonth($i).'</option>';
+		}
+		}
+		    echo '</select>';
+                            
+               echo "<select name='birthYear' id='birthYear'>";
+                         $Year=date("Y");$i=0;
+               for ($i=$Year-80;$i<=$Year;$i++)
+               {
+		if ($i==$tyear) 	
+		{
+	          echo "<option selected>$i</option>";			
+		}
+		else {
+                 echo "<option>$i</option>"; }               	}
+
+              echo "</select>";
+
+                ?>
+
+
+                  </p>
+                   <p class="sh1">
+                    <label for="yashjoy">Место рождения</label>
+                    <input id="yashjoy" name="yashjoy" <?php echo 'value="'.$row['yashjoy'].'"'; ?> type="text"  />
+                  </p>
+                    <p class="sh1">
+
+			   <label for="photo">Загрузка фото</Label>
+            <input name="fileToUpload" id="fileToUpload"  size="32"  border="0" type="file" onchange="ajaxUpload(this.form,'photo_upload.php', ''); return false;"/>
+                     </p>
+		      </div> <!--class block2-->
+
+			<div class="block3">
+			<div class="block1" name="uploadOutput" id="uploadOutput" ></div>
+			</div>
+    <div><input id="fileup" name="fileup" type="hidden" value="  "></div> <!--Для сохранение имени файла-->
+              </fieldset>
+
+             <fieldset class="step">
+                  <legend>Паспортные данные</legend>
+                  <p class="sh2">
+                    <label for="tip">Тип документа</label>
+              <?php
+             //  include('db.php');
+               $select = mysql_query("SELECT NOMI_RUS FROM l_dokument") or die(mysql_error());
+               echo "<select name='tip' id='tip'>";
+           while(list($name_rus) = mysql_fetch_row($select))
+	      if ($name_rus==$row['tip']) {echo "<option selected='selected'>$name_rus</option>"; }
+              else {echo "<option>$name_rus</option>";}
+              echo "</select>";
+//              mysql_close($bd);
+                ?>
+	             </p>
+
+                   <p class="sh2">
+                    <label for="seriya">Серия</label>
+                    <input id="seriya" name="seriya" <?php echo 'value="'.$row['seriya'].'"'; ?> type="text"  />
+                    </p>
+                   <p class="sh2">
+	            <label for="nomer">Номер</label>
+                    <input id="nomer" name="nomer" <?php echo 'value="'.$row['nomer'].'"'; ?> type="text"  />
+		   </p>
+		    <p class="sh2">
+		    <label for="vidan">Дата выдачи</label>
+		    <input name="vidan" type="text" id="birthDay" <?php echo 'value="'.$vid[2].'"'; ?> size="3">
+                    <select name="vidanMonth" id="birthMonth">
+<?php	    for ($i=1;$i<=12;$i++)
+		{$a=sprintf("%02s",$i);
+		if ($a==$vid[1])
+		{echo '<option selected="selected" value="'.$a.'">'.getMonth($i).'</option>';}
+		else {echo '<option value="'.$a.'">'.getMonth($i).'</option>';	}}
+		echo '</select>';
+                echo "<select name='vidanYear' id='birthYear'>";
+                     $Year=date("Y");$i=0;
+               for ($i=$year-($year-1991);$i<=$Year+45;$i++)
+               {if ($i==$vid[0]) 	
+		{echo "<option selected>$i</option>";}
+		else {echo "<option>$i</option>"; }}     
+              echo "</select>";
+?>
+                    </p>
+		    <p class="sh2">
+		    <label for="vidan">Срок действия</label>
+                    <input name="srok" type="text" id="birthDay" <?php echo 'value="'.$sr[2].'"'; ?>  size="3">
+                    <select name='srokMonth' id="birthMonth">
+<?php	    for ($i=1;$i<=12;$i++)
+		{$a=sprintf("%02s",$i);
+		if ($a==$sr[1])
+		{echo '<option selected="selected" value="'.$a.'">'.getMonth($i).'</option>';}
+		else {echo '<option value="'.$a.'">'.getMonth($i).'</option>';	}}
+		echo '</select>';
+                echo "<select name='srokYear' id='birthYear'>";
+                     $Year=date("Y");$i=0;
+               for ($i=$year-($year-1991);$i<=$Year+45;$i++)
+               {if ($i==$sr[0]) 	
+		{echo "<option selected>$i</option>";}
+		else {echo "<option>$i</option>"; }}     
+              echo "</select>";
+?>
+                    </p>
+                     <p class="sh2">
+                   <label for="kem">Орган выдачи документа</label>
+                    <input id="kem" name="kem" <?php echo 'value="'.$row['kem'].'"'; ?>  type="text"  />
+                  </p>
+
+                   <nobr>
+		  <span class="select" margin-left="100"> &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;Что случилось с документом?</span><br>
+				    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+				     &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+				  <input type="radio"  name="radio" id="ut" value="1" width="85" checked="checked" />
+				  <label for="ut">-Утерян</label>
+                  &nbsp;&nbsp;&nbsp;
+				  <input type="radio"  name="radio" id="pro" value="2" />
+				  <label for="pro">-Просрочен</label>
+                  &nbsp;&nbsp;&nbsp;
+				  <input type="radio"  name="radio" id="uk" value="3"/>
+				  <label for="uk">-Украден</label>
+				  </nobr>
+		           <br>
+				    <p class="sh2">
+                    <label for="sabab"> При следующих обстоятельствах</label>
+                    <input id="sabab" name="sabab"  <?php echo 'value="'.$row['sabab'].'"'; ?>  type="text" class="keyboardInput"/>
+                  </p>
+				    <p class="sh2">
+                    <label for="adress">Адрес постоянного проживания</label>
+                    <input id="adress" name="adress"  <?php echo 'value="'.$row['adress'].'"'; ?>  type="text" class="keyboardInput"  />
+                  </p>
+				     <p class="sh2">
+				    <label for="phone">№ Телефона</label>
+                    <input id="phone" name="phone"  <?php echo 'value="'.$row['phone'].'"'; ?>  type="text"  />
+                  </p>
+              </fieldset>
+
+			 <fieldset class="step">
+                  <legend>Настоящим заявляю, что нахожусь в</Legend>
+                  <br>
+                    <p class="sh3">
+                    <label for="strana">Страна</label>
+               <?php
+               $select = mysql_query("SELECT  nomi_rus FROM l_davlat ORDER BY nomi_rus");
+               echo "<select name='strana' id='strana'>";
+           while(list($name_rus) = mysql_fetch_row($select))
+               if ($name_rus==$row['strana']) {echo "<option selected='selected'>$name_rus</option>"; }
+              else {echo "<option>$name_rus</option>";}
+              echo "</select>";
+                ?>
+                  </p>
+                    <p class="sh3">
+                    <label for="gorod">Город</label>
+                    <input id="gorod" name="gorod" <?php echo 'value="'.$row['gorod'].'"'; ?> type="text"/>
+                  </p>
+		 <p class="sh3">
+		    <label for="kun">Дата пребывания</Label>
+                    <input name="kun" <?php echo 'value="'.$kun[2].'"'; ?>  type="text" id="birthDay" size="3">
+                    <select name='keloy' id="birthMonth">
+		<?php	    for ($i=1;$i<=12;$i++)
+		{$a=sprintf("%02s",$i);
+		if ($a==$kun[1])
+		{echo '<option selected="selected" value="'.$a.'">'.getMonth($i).'</option>';}
+		else {echo '<option value="'.$a.'">'.getMonth($i).'</option>';	}}
+		echo '</select>';
+                echo "<select name='kelYear' id='birthYear'>";
+                     $Year=date("Y");$i=0;
+               for ($i=$year-($year-1991);$i<=$Year;$i++)
+               {if ($i==$kun[0]) 	
+		{echo "<option selected>$i</option>";}
+		else {echo "<option>$i</option>"; }}     
+              echo "</select>";
+?>
+                 </p>
+                    <p class="sh3">
+                    <label for="maqsad">Цель</Label>
+                    <input id="maqsad" name="maqsad" <?php echo 'value="'.$row['maqsad'].'"'; ?> type="text" class="keyboardInput"  />
+                  </p>
+                    <p class="sh3">
+                    <label for="job">Род занятий</label>
+                    <input id="job" name="job" <?php echo 'value="'.$row['job'].'"'; ?> type="text" class="keyboardInput"  />
+                  </p>
+                    <p class="sh3">
+                    <label for="vr_adress">Адрес временного проживания</label>
+                    <input id="vr_adress" name="vr_adress" <?php echo 'value="'.$row['vr_adress'].'"'; ?> type="text"  />
+                  </p>
+				  <p class="sh3">
+		    <label for="phone1">№ Телефона</label>
+                    <input id="phone1" name="phone1"  <?php echo 'value="'.$row['phone1'].'"'; ?> type="text"  />
+              </fieldset>
+
+               <fieldset class="step">
+	   <legend>Планирую вернуться в Узбекистан</legend>
+	                <p class="sh4">
+                    <label for="vozvrat">Дата возвращения</label>
+                    <input name="vozvrat" <?php echo 'value="'.$vozv[2].'"'; ?>  type="text" id="birthDay" size="3">
+                    <select name='vozvratMon' id="birthMonth">
+<?php	    for ($i=1;$i<=12;$i++)
+		{$a=sprintf("%02s",$i);
+		if ($a==$vozv[1])
+		{echo '<option selected="selected" value="'.$a.'">'.getMonth($i).'</option>';}
+		else {echo '<option value="'.$a.'">'.getMonth($i).'</option>';	}}
+		echo '</select>';
+                echo "<select name='vozvratYear' id='birthYear'>";
+                     $Year=date("Y");$i=0;
+               for ($i=$year;$i<=$Year+1;$i++)
+               {if ($i==$vozv[0]) 	
+		{echo "<option selected>$i</option>";}
+		else {echo "<option>$i</option>"; }}     
+              echo "</select>";
+?>
+                  </p>
+                    <p></p>
+					<p class="sh4">Совместно следуют дети:</p>
+					<p class="sh4">
+                    <label for="fio_deti">1.ФИО</Label>
+                   <input id="fio_deti" name="fio_deti" <?php echo 'value="'.$row['fio_deti'].'"'; ?> type="text" >
+                   </p>
+                    <p class="sh4">
+		    <label for="data_rojd">Дата рождения</label>
+                    <input name="data_deti" type="text" <?php echo 'value="'.$deti_r1[2].'"'; ?> id="birthDay" size="3">
+                    <select name='detiMoth' id="birthMonth">
+<?php	    for ($i=1;$i<=12;$i++)
+		{$a=sprintf("%02s",$i);
+		if ($a==$deti_r1[1])
+		{echo '<option selected="selected" value="'.$a.'">'.getMonth($i).'</option>';}
+		else {echo '<option value="'.$a.'">'.getMonth($i).'</option>';	}}
+		echo '</select>';
+                echo "<select name='detiYear' id='birthYear'>";
+                     $Year=date("Y");$i=0;
+               for ($i=$Year-15;$i<=$Year;$i++)
+               {if ($i==$deti_r1[0]) 	
+		{echo "<option selected>$i</option>";}
+		else {echo "<option>$i</option>"; }}     
+              echo "</select>";
+?>
+		</p>
+		<p class="sh4">
+		<label for="fio_deti2">2.ФИО</Label>
+                  <input id="fio_deti2" name="fio_deti2" <?php echo 'value="'.$row['fio_deti2'].'"'; ?> type="text" >
+                   </p>
+                   <p class="sh4">
+		    <label for="data_rojd2">Дата рождения</label>
+                    <input name="data_rojd2" <?php echo 'value="'.$deti_r2[2].'"'; ?>  type="text" id="birthDay" size="3">
+                    <select name='detiMonth2' id="birthMonth">
+			<?php	    for ($i=1;$i<=12;$i++)
+		{$a=sprintf("%02s",$i);
+		if ($a==$deti_r2[1])
+		{echo '<option selected="selected" value="'.$a.'">'.getMonth($i).'</option>';}
+		else {echo '<option value="'.$a.'">'.getMonth($i).'</option>';	}}
+		echo '</select>';
+                echo "<select name='detiYear2' id='birthYear'>";
+                     $Year=date("Y");$i=0;
+               for ($i=$Year-15;$i<=$Year;$i++)
+               {if ($i==$deti_r2[0]) 	
+		{echo "<option selected>$i</option>";}
+		else {echo "<option>$i</option>"; }}     
+              echo "</select>";
+?>
+		</p>
+		<p class="sh4">
+                   <label for="fio_deti3">3.ФИО</Label>
+                   <input id="fio_deti3" name="fio_deti3" <?php echo 'value="'.$row['fio_deti3'].'"'; ?>  type="text" >
+                   </p>
+                   <p class="sh4">
+ 	    <label for="data_rojd3">Дата рождения</label>
+                   <input name="data_rojd3" <?php echo 'value="'.$deti_r3[2].'"'; ?> type="text" id="birthDay" size="3">
+                    <select name="detiMonth3" id="birthMonth">
+<?php	    for ($i=1;$i<=12;$i++)
+		{$a=sprintf("%02s",$i);
+		if ($a==$deti_r3[1])
+		{echo '<option selected="selected" value="'.$a.'">'.getMonth($i).'</option>';}
+		else {echo '<option value="'.$a.'">'.getMonth($i).'</option>';	}}
+		echo '</select>';
+                echo "<select name='detiYear3' id='birthYear'>";
+                     $Year=date("Y");$i=0;
+               for ($i=$Year-15;$i<=$Year;$i++)
+               {if ($i==$deti_r3[0]) 	
+		{echo "<option selected>$i</option>";}
+		else {echo "<option>$i</option>"; }}     
+              echo "</select>";
+?>
+                  </p>
+	        </fieldset>
+
+      <fieldset class="step">
+                 <legend>Сведения о моих близких родственниках</legend> <br><br>
+                <p class="plus" id="o">Данные об отце</p>
+                <div class="otvet">
+                <p class="sh6">
+                    <label for="otes">ФИО:</label>
+                    <input   name="otes" id="otes" <?php echo 'value="'.$row['fio_otsa'].'"'; ?> type="text" >
+                </p>
+              <p class="sh6">
+                    <label for="data_r_o">Дата рождения отца</label>
+                    <input name="data_r_o" <?php echo 'value="'.$data_ro[2].'"'; ?>  type="text" id="birthDay" size="3">
+                    <select name="birthMonth_o" id="birthMonth">
+                          <?php	    for ($i=1;$i<=12;$i++)
+		{$a=sprintf("%02s",$i);
+		if ($a==$data_ro[1])
+		{echo '<option selected="selected" value="'.$a.'">'.getMonth($i).'</option>';}
+		else {echo '<option value="'.$a.'">'.getMonth($i).'</option>';	}}
+		echo '</select>';
+                echo "<select name='birthYear_o' id='birthYear'>";
+                     $Year=date("Y");$i=0;
+               for ($i=$Year-70;$i<=$Year-20;$i++)
+               {if ($i==$data_ro[0]) 	
+		{echo "<option selected>$i</option>";}
+		else {echo "<option>$i</option>"; }}     
+              echo "</select>";
+?>                       
+                </p>
+             <p class="sh6">
+                    <label for="mesto_r_o">Место рождения отца</label>
+                    <input   name="mesto_r_o" id="mesto_r_o" <?php echo 'value="'.$row['mesto_ro'].'"'; ?>  type="text" >
+                </p>
+           <p class="sh6">
+                    <label for="adrespro_o">Адрес проживания (Телефон)</label>
+                    <input   name="adrespro_o" id="adrespro_o" <?php echo 'value="'.$row['adres_o'].'"'; ?> type="text" >
+                </p>
+                <p class="sh6">
+                    <label for="mesto_rab_o">Место работы, должность и телефон</label>
+                    <input   name="mesto_rab_o" id="mesto_rab_o" <?php echo 'value="'.$row['mesto_rab_o'].'"'; ?> type="text" >
+                </p>
+
+
+                </div><br>
+
+               <p class="plus" id="m">Данные о матери</p>
+                <div class="otvet">
+              <p class="sh6">
+                    <label for="mat">ФИО:</label>
+                    <input   name="mat" id="mat" <?php echo 'value="'.$row['fio_mat'].'"'; ?> type="text" >
+                </p>
+             <p class="sh6">
+                    <label for="data_r_m">Дата рождения матери</label>
+                   <input name="data_r_m" type="text" id="birthDay" <?php echo 'value="'.$data_rm[2].'"'; ?> size="3">
+                    <select name="birthMonth_m" id="birthMonth">
+<?php	    for ($i=1;$i<=12;$i++)
+		{$a=sprintf("%02s",$i);
+		if ($a==$data_rm[1])
+		{echo '<option selected="selected" value="'.$a.'">'.getMonth($i).'</option>';}
+		else {echo '<option value="'.$a.'">'.getMonth($i).'</option>';	}}
+		echo '</select>';
+                echo "<select name='birthYear_m' id='birthYear'>";
+                     $Year=date("Y");$i=0;
+               for ($i=$Year-70;$i<=$Year-20;$i++)
+               {if ($i==$data_rm[0]) 	
+		{echo "<option selected>$i</option>";}
+		else {echo "<option>$i</option>"; }}     
+              echo "</select>";
+?>       
+
+                </p>
+             <p class="sh6">
+                    <label for="mesto_r_m">Место рождения матери</label>
+                    <input   name="mesto_r_m" id="mesto_r_m" <?php echo 'value="'.$row['mesto_r_m'].'"'; ?>type="text" >
+                </p>
+           <p class="sh6">
+                    <label for="adrespro_m">Адрес проживания (Телефон)</label>
+                    <input   name="adrespro_m" id="adrespro_m" <?php echo 'value="'.$row['adres_m'].'"'; ?> type="text" >
+                </p>
+                <p class="sh6">
+                    <label for="mesto_rab_m">Место работы,Должность и телефон</label>
+                    <input   name="mesto_rab_m" id="mesto_rab_m" <?php echo 'value="'.$row['mesto_rab_m'].'"'; ?>type="text" >
+                </p>
+
+                </div><br>
+
+       <p class="plus" id="s">Данные Супруги</p>
+                <div class="otvet">
+             <div>
+             <p class="sh6">
+                    <label for="suprug">ФИО:</label>
+                    <input   name="suprug" id="suprug" <?php echo 'value="'.$row['fio_sup'].'"'; ?>type="text" >
+                </p>
+           <p class="sh4">
+                    <label for="data_r_s">Дата рождения</label>
+                     <input name="data_r_s" type="text" <?php echo 'value="'.$data_rs[2].'"'; ?> id="birthDay" size="3">
+                    <select name="birthMonth_s" id="birthMonth">
+<?php	    for ($i=1;$i<=12;$i++)
+		{$a=sprintf("%02s",$i);
+		if ($a==$data_rs[1])
+		{echo '<option selected="selected" value="'.$a.'">'.getMonth($i).'</option>';}
+		else {echo '<option value="'.$a.'">'.getMonth($i).'</option>';	}}
+		echo '</select>';
+                echo "<select name='birthYear_s' id='birthYear'>";
+                     $Year=date("Y");$i=0;
+               for ($i=$Year-70;$i<=$Year-20;$i++)
+               {if ($i==$data_rs[0]) 	
+		{echo "<option selected>$i</option>";}
+		else {echo "<option>$i</option>"; }}     
+              echo "</select>";
+?>       
+
+                </p>
+             <p class="sh6">
+                    <label for="mesto_r_s">Место рождения супруги</label>
+                    <input   name="mesto_r_s" id="mesto_r_s" <?php echo 'value="'.$row['mesto_rs'].'"'; ?>type="text" >
+                </p>
+           <p class="sh6">
+                    <label for="adrespro_s">Адрес проживания (Телефон)</label>
+                    <input   name="adrespro_s" id="adrespro_s" <?php echo 'value="'.$row['adres_s'].'"'; ?> type="text" >
+                </p>
+                <p class="sh6">
+                    <label for="mesto_rab_s">Место работы</label>
+                    <input   name="mesto_rab_s" id="mesto_rab_s" <?php echo 'value="'.$row['mesto_rab_s'].'"'; ?> type="text" >
+                </p>
+                <p class="sh6">
+                    <label for="dol_tel_s">Должность и телефон</label>
+                    <input   name="dol_tel_s" id="dol_tel_s" <?php echo 'value="'.$row['dol_tel_s'].'"'; ?> type="text" >
+                </p>
+                </div>
+			 </fieldset>
+
+			<fieldset class="step">
+                 <legend>К настоящему заявлению прилагаю</legend><br><br>
+                 <p class="sh5">
+                  <input type="checkbox"  name="chk_pasport" id="chk_pasport"  />
+      			  <label for="chk_pasport" >- Просроченный / испорченный паспорт</label>
+      			 </p>
+      			 <p class="sh5">
+                  <input type="checkbox"  name="chk_photo" id="chk_photo"  />
+      			  <label for="chk_photo" >- Две фотографии (35х45 мм)</label>
+      			 </p>
+      			  <p class="sh5">
+                  <input type="checkbox"  name="chk_sert" id="chk_sert"  />
+	  <label for="chk_sert" >- По две фотографии на каждого, вписываемого в сертификат ребенка (35х45 мм)</label>
+                  </p>
+                   <p class="sh5">
+                   <input type="checkbox"  name="chk_pmj" id="chk_pmj"  />
+      			  <label for="chk_pmj" >- Копии карточки на ПМЖ страны пребывания</label>
+                  </p>
+                   <p class="sh5">
+                  <input type="checkbox"  name="chk_potv" id="chk_potv"  />
+      			  <label for="chk_potv" >- Подтверждение соответствующей организации, в которой заявитель находится
+      			  на учебе, лечении либо в командировке</label>
+			      </p>
+			 </fieldset>
+
+      		 <fieldset class="step">
+
+               <p class="sh4">
+               <label for="elchixona">Место оформления сертификата</label>
+<?php
+		$select = mysql_query("SELECT  id,nomi_rus,kod_id FROM l_elchixona");
+           echo "<select name='elchixona' id='elchixona' >";
+         while(list($id, $name_rus,$kod_id) = mysql_fetch_row($select))
+               if ($id==$row['elchixona']) {echo '<option selected="selected" value='.$id/$kod_id.'>$name_rus</option>';
+ }
+              else {echo "<option value='$id/$kod_id'>$name_rus</option>";}
+              echo "</select>";
+                ?>
+              </p>
+                <br><br><br><br><br>
+                 <legend>Подтверждение</legend>
+                  <br>
+                  <h1>&nbsp;&nbsp;&nbsp;&nbsp;Примечание</h1>
+     <p class="sh2" align="justify">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;При надлежащем заполнении анкеты, каждая страничка отмечается (<img src="images/checked.png">)зеленой галочкой в углу.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Красный крестик (<img src="images/error.png">)указывает на незаполненность страницы, недостаточность информации, либо наличие ошибок в нем.<br><br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;В таком случае необходимо заново заполнить страницу и подтвердить правильность ввода нажатием соответствующей кнопки.
+ </p>
+            <br> <br><br>
+
+<div class="ajax-fc-container" ></div>
+
+ <br>
+              <p class="submit">
+                    <button id="registerButton" type="submit">Подтверждаю</button>
+                    </p>
+      <div id="loading" align="center" style="display:none";><span><img src="images/loading49.gif"> </span></div>
+                   <br><br><br>
+
+             </fieldset>
+                </form>
+            </div> <!--div id="steps"-->
+
+                     <!-- Навигация  -->
+              <div id="navigation" style="display:none";>
+                    <ul>
+                        <li class="selected"> <a href="#">1</a> </li>
+                        <li> <a href="#">2</a> </li>
+                        <li> <a href="#">3</a> </li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+						<li><a href="#">6</a></li>
+						<li><a href="#">7</a></li>
+						<li class="next"><a href="#">Далее</a></li>
+                    </ul>
+              </div>
+          </div>  <!-- <div id="wrapper1">-->
+        </div>  <!-- <div id="content">-->
+
+        <p id='htmlTarget'>   </p>
+   <!-- modal content -->
+		<div id='confirm'>
+			<div class='header'><span>Информация</span></div>
+			<div class='message'></div>
+			<div class='buttons'>
+				<!--<div class='no simplemodal-close'>No</div>-->
+				<div class='yes'>OK</div>
+			</div>
+		</div>
+		<!-- preload the images -->
+		<div style='display:none'>
+			<img src='images/confirm/header.gif' alt='' />
+			<img src='images/confirm/button.gif' alt='' />
+		</div>
+
+ <script>
+$(function(){
+<!--///* <!-   $(".ajax-fc-container").captcha({formId: "formElem"});-->*///-->
+  $.datepicker.setDefaults(
+        $.extend($.datepicker.regional["ru"])
+  );
+  $("#tugkun").datepicker();
+  $("#vidan").datepicker();
+  $("#srok").datepicker();
+  $("#kun").datepicker();
+  $("#vozvrat").datepicker();
+  $("#data_rojd").datepicker();
+  $("#data_rojd2").datepicker();
+  $("#data_rojd3").datepicker();
+  $("#data_rojd4").datepicker();
+    $("#data_r_o").datepicker();
+      $("#data_r_m").datepicker();
+        $("#data_r_s").datepicker();
+});
+</script>
+
+   <script type="text/javascript">
+   $(document).ready(function()
+{
+   $(".otvet").hide();
+
+   $('#o').toggle(function() {
+   $(this).next().slideDown(300);
+   $(this).removeClass('plus').addClass('minus');
+    if($('#m').hasClass('minus')){
+  	$('#m').removeClass('minus').addClass('plus');
+  	$('#m').next().slideUp(100); };
+  	  if($('#s').hasClass('minus')){
+  	$('#s').removeClass('minus').addClass('plus');
+  	$('#s').next().slideUp(100); }
+},
+function() {
+   $(this).next().slideUp(300);
+   $(this).removeClass('minus').addClass('plus');
+});
+
+   $('#m').toggle(function() {
+   $(this).next().slideDown(300);
+   $(this).removeClass('plus').addClass('minus');
+       if($('#o').hasClass('minus')){
+  	$('#o').removeClass('minus').addClass('plus');
+  	  $('#o').next().slideUp(100); };
+  	  if($('#s').hasClass('minus')){
+  	$('#s').removeClass('minus').addClass('plus');
+  	$('#s').next().slideUp(100); }
+},
+function() {
+   $(this).next().slideUp(300);
+   $(this).removeClass('minus').addClass('plus');
+});
+
+   $('#s').toggle(function() {
+   $(this).next().slideDown(300);
+   $(this).removeClass('plus').addClass('minus');
+       if($('#o').hasClass('minus')){
+  	$('#o').removeClass('minus').addClass('plus');
+  	  $('#o').next().slideUp(100); };
+  	  if($('#m').hasClass('minus')){
+  	$('#m').removeClass('minus').addClass('plus');
+  	$('#m').next().slideUp(100); }
+},
+function() {
+   $(this).next().slideUp(300);
+   $(this).removeClass('minus').addClass('plus');
+});
+////
+
+ 	  $('#loading').hide();
+    $('#htmlTarget').hide();
+
+       $("#loading")
+	.ajaxStart(function(){
+		$(this).show();
+	 $("#registerButton").hide();
+	})
+	.ajaxComplete(function(){
+		$(this).hide();
+    $("#registerButton").show();
+	});
+
+	var options = {
+		type: "POST",
+		target: '#htmlTarget',
+		beforeSerialize: beforeSerialize,
+		beforeSubmit:  showRequest,
+		url:  "upSert.php"
+	              };
+
+	$('#formElem').submit(function() {
+		$(this).ajaxSubmit(options);
+		return false;
+	});
+     return false;
+});
+function beforeSerialize($form, options) {
+    $form[0].fileup.value =$form[0].fileToUpload.value;
+    return true;
+}
+
+function showRequest(formData, jqForm, options) {
+// var queryString = $.param(formData);
+// alert(queryString=>fileToUpload);
+ // alert(jqForm[0].fileToUpload.value);
+  //  alert(jqForm[0].fileup.value);
+  //  alert($('#elchixona').val());
+	return true;
+}
+function showResponse(responseText, statusText, xhr, $form)  {
+   // $.modal("<div><h1>SimpleModal</h1></div>");
+ 	confirm("Ваши данные сохранены успешно.\nЧтобы получить анкету нажмите 'OK'", function () {
+			window.location.href = 'download.php?download_file=anketa.pdf';
+			});
+   // alert('status: ' + statusText + '\n\nresponseText: \n' + responseText +
+   //    '\n\nThe output div should have already been updated with the responseText.');
+     //   $('#htmlTarget').fadeIn('slow');
+}
+
+function confirm(message, callback) {
+	$('#confirm').modal({
+		closeHTML: "<a href='#' title='Close' class='modal-close'>x</a>",
+		position: ["20%",],
+		overlayId: 'confirm-overlay',
+		containerId: 'confirm-container',
+		onShow: function (dialog) {
+			$('.message', dialog.data[0]).append(message);
+  			// if the user clicks "OK"
+			$('.yes', dialog.data[0]).click(function () {
+				// call the callback
+				if ($.isFunction(callback)) {
+					callback.apply();
+				}
+				// close the dialog
+				$.modal.close();
+			});
+		} //onShow
+	});
+ }
+</script>
+
+ </body>
+</html>

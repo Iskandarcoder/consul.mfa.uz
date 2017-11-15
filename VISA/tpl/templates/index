@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>{$title}</title>
+<meta name="keywords" lang="ru" content="{$keywords}">
+<meta name=Robots content="all">
+<div id="header"></div>
+<link rel="stylesheet" type="text/css" href="css/stran.css" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+   <script type="text/javascript" src="js/imagesize.js"></script>
+</head>
+<body>
+
+<div id="bar"><div id="gmenu">{include_php file="Menu.php"}</div></div>
+<table id=wrapper border="0" cellspacing="0" cellpadding="0">
+
+  <tr  valign="top">
+  <td bgcolor="#FFFF99" width="200">
+  <div class="blok">Ïîëåçíûå ññûëêè</div>
+    <div >
+<p><a href="http://www.mfa.uz" target="_blank"><img bgcolor="#3BB3C2" class="expando" border="0" src="images/mfa.jpg"
+alt="Ìèíèñòåðñòâî èíîñòðàííûõ äåë Ðåñïóáëèêè Óçáåêèñòàí" width="120" height="80"></p>
+<p><a href="http://mfa.uz/rus/pressa_i_media_servis/znam_data/nez_19let/" target="_blank"><img class="expando" border="0" src="images/sentyabr1.jpg" width="120" height="80"></p>
+<p><a href="http://www.evisa.mfa.uz" target="_blank"><img class="expando" border="0" src="images/e-visa_r.jpg" width="120" height="80"></p>
+       </div>
+  </td>
+        <td class="body_txt">
+        <div class="blok">Ãëàâíàÿ</div>
+
+     {include_php file=$Action.name}
+
+        </td>
+  </tr>
+  </table>
+ {include file="Footer.tpl" }
+
+
+</body>
+</html>
+

@@ -1,0 +1,16 @@
+<?php
+ function getSana($access_date)
+		{	
+		$ar_date=explode("-",$access_date);
+		return $ar_date;
+		}
+function getMonth($n)
+{
+	include('db.php');
+	$lSQL="SELECT * FROM l_oy where id=".$n;
+	$sql=mysql_query($lSQL);
+	$row=mysql_fetch_array($sql);
+	return $row['ctitle_ru'];			
+}
+?>
+

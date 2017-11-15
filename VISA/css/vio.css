@@ -1,0 +1,19 @@
+      	#content {font-size:1.0em;margin:0;margin-bottom:10px}
+	  #content .post {padding:10px 20px;position:relative;background:#eee;margin-bottom:5px}
+		#content .post .title{position:relative;height:1%;}
+			#content .post .title h3{font-weight:bold; margin-top:0; cursor:pointer; font-size:1em;}
+			#content .post .title h3:hover {color:#aaaaaa;}
+			#content .post .title p{font-size:0.55em;font-style:italic;font-weight:bold;margin:0}
+			#content .post .title span{				position:absolute;
+				right:0;top:30%;
+				cursor:pointer;
+				border: 1px solid #aaaaaa;
+				background:#ffffff;
+				display:block;
+				font-size:0
+				}
+			#content .inactive .title span{background-position:left bottom}
+		#content .post .entry{padding:5px;margin:0;
+		display:none;border: 1px solid #aaaaaa;font-weight: normal;font-size:1.0em;
+		background:#ffffff;
+}

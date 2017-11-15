@@ -1,0 +1,412 @@
+* {font-size: 11px; font-weight: normal;}
+/* imported from stran*/
+html { background-color: white; background-image: url(../images/Page-BgSimpleGradient.jpg); height: 100%; margin-bottom: 0; }
+td { vertical-align: top; }
+
+div#header {
+	margin:0 auto; 
+	background-position: 0 0;
+	width: 900px;
+	height: 150px;
+	background: url(../images/logo.jpg);
+	background-repeat: no-repeat;
+}
+form {
+	margin: 0 auto;
+	padding: 0;
+
+}
+div#bar {
+background-image: url(../images/Block3.png);
+background-repeat: repeat-x;
+height: 29px;
+margin:0 auto; /*????????????? ????????*/
+width:900px;
+/*padding-right: 29px;*/
+/*padding-left: 20px;*/
+}
+body{
+    padding:0;
+    font:bold 12px Verdana, Arial, Helvetica, sans-serif;
+    color:#666;
+    text-align:center;
+}
+#headerImg {
+	position: relative;
+	left:-380px;
+	top:-130px;
+ margin: 5px 0 0 10px;
+ z-index: 5;
+	}
+div#gmenu {
+		margin:0 auto; /*????????????? ????????*/
+	    width:900px; /*?????? ????????, ???????????? ????????, ??? ???? margin:0 auto; ?? ????????*/
+		/*position: relative;*/
+	}
+#footer {
+	margin:0 auto; /*????????????? ????????*/
+	background-repeat:no-repeat;
+	background-image: url(../images/Footer.png);
+	width: 900px;
+	height: 100px;
+	bottom:0;
+	left:0;
+}
+#wrapper { margin:0 auto; width:900px; background: #ffffff; font:bold 12px Verdana, Arial, Helvetica, sans-serif; color:#666; }
+/* EOF Import*/
+a {text-decoration: none;}
+#content{
+  margin:0 auto;
+  /*  height:100%;
+     border:1px solid #00f;*/
+}
+h2 { color: #004080; font-size: 16px; text-align: center; margin-bottom: 0; padding-top: 0; padding-bottom: 0; }
+#wrapper1{
+   
+    overflow:hidden;
+  }
+.shsh {
+ width:6px;
+}
+#steps{
+   overflow:hidden;
+/*   border:1px solid #ff0;*/
+}
+.block_head { margin: 0 auto; width: 870px; background-image: url(../images/Block3.png); background-repeat: repeat-x; padding-top: 5px; padding-bottom: 5px; }
+.block_head span { color:#fff; font-size:14px; font-weight:bold; padding-top: 5px; padding-bottom: 5px; padding-left: 10px;}
+
+.step { 
+-moz-box-shadow:0px 0px 3px #aaa; 
+-webkit-box-shadow:0px 0px 3px #aaa; 
+box-shadow:0px 0px 3px #aaa; 
+-moz-border-radius-bottomleft:10px;
+-moz-border-radius-bottomright:10px;
+-webkit-border-radius-bottomleft:10px; 
+-webkit-border-radius-bottomright:10px; 
+border:solid 1px #ccc; 
+background-color:#e9e9e9; width: 850px; margin:0 auto; padding: 0 8px 8px;
+  /*  border:1px solid #0ff;*/
+}
+span.checked{
+    background:transparent url(../images/checked.png) no-repeat top left;
+    position:absolute;
+    top:0px;
+    left:1px;
+    width:20px;
+    height:20px;
+}
+span.error{
+    background:transparent url(../images/error.png) no-repeat top left;
+    position:absolute;
+    top:0px;
+    left:1px;
+    width:20px;
+    height:20px;
+}
+#steps form fieldset{
+ /*   border:1px solid #f00;*/
+  border:none;
+ }
+#steps form legend{ text-align:left; color:#fff; font-size:14px; font-weight:bold; padding-top: 5px; padding-bottom: 5px; padding-left: 10px; }
+#sh5 {overflow:hidden;margin:0;background:#eee;border:0.01em solid #eee;-moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    -moz-box-shadow:0px 0px 3px #aaa;
+    -webkit-box-shadow:0px 0px 3px #aaa;
+    box-shadow:0px 0px 3px #aaa;}
+#sh5 .post {padding:10px 20px;position:relative;background:#eee;margin-bottom:5px}
+
+/*    float:left;
+    clear:both;
+    margin:5px 3px;
+    background-color:#f4f4f4;
+    border:0.01em solid #eee;
+    width:600px;
+    height:20px;
+    padding:5px;
+    font-family: Helvetica,Arial;
+    font-weight:normal;
+    margin-left:15px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    -moz-box-shadow:0px 0px 3px #aaa;
+    -webkit-box-shadow:0px 0px 3px #aaa;
+    box-shadow:0px 0px 3px #aaa;
+	}                           */
+#sh5 .inactive {color: #000}
+#sh5 .post .title {position:relative;height:1%;margin:0;padding:0;font-weight:normal;font-size:1.1em;}
+#sh5 .post .title h3{font-size:1.0em;margin:0;padding:0}
+#sh5 .post .title h3 a{text-decoration:none;color:#000}
+#sh5 .inactive .title h3 a{color:#bbb}
+#sh5 .post .title p{font-size:0.7em;font-style:italic;font-weight:normal;margin:0}
+#sh5 .post .title span{
+				position:absolute;
+				right:0;top:5px;
+				cursor:pointer;
+				border: 1px solid #aaaaaa;
+				background:#eee;
+				display:block;
+				font-size:0
+				}
+#sh5 .inactive .title span{background-position:left bottom}
+#sh5 .post .entry{padding-top:10px;margin:0;
+display:none;
+font-weight: normal;font-size:1.0em;
+border-top: 1px solid #aaaaaa;
+background:#eee;
+/*border-bottom: 1px solid #aaaaaa;*/
+
+}
+#btn
+{position:relative;
+    left:70%;
+  border: 1px solid #777777;
+  background: #e5f5fe;
+  color: #1593db;
+  font: bold 12px 'Trebuchet MS';
+  padding-left: 10px;
+  padding-right: 10px;
+  cursor: pointer;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  background:  url('images/Block2.png') repeat-x;
+}
+#btn2{font-size:1.0em;font-style:italic;font-weight:normal;margin:0}
+
+/*//////////////////// Gmail button //////////////// */
+.btn {
+	position:relative;
+    left:70%;
+display: inline-block;
+background: none;
+margin: 0;
+padding: 3px 0;
+border-width: 0;
+overflow: visible;
+text-decoration: none;
+color: #333;
+}
+
+* html button.btn {
+padding-bottom: 1px;
+}
+
+/* ??? ? ??? ??? ??? Gecko ?????????,
+??????? ????????? ?????????????? 3px
+?????? ? ????? ?? ???? button*/
+html:not([lang*=""]) button.btn {
+margin: 0 -3px;
+}
+
+.btn span {
+background: #ddd url(img/bg-button.gif) repeat-x 0 0;
+margin: 0;
+padding: 3px 0;
+border-left: 1px solid #bbb;
+border-right: 1px solid #aaa;
+}
+
+* html .btn span {
+padding-top: 0;
+}
+
+.btn span span {
+position: relative;
+padding: 3px .4em;
+border-width: 0;
+border-top: 1px solid #bbb;
+border-bottom: 1px solid #aaa;
+}
+
+/* ??? ?????? ?????? ??? ?????? ????-?????-????? */
+button.pill-l span {
+border-right-width: 0;
+}
+
+button.pill-l span span {
+border-right:1px solid #bbb;
+}
+
+button.pill-c span {
+border-right-style:none;
+border-left-color:#fff;
+}
+
+button.pill-c span span {
+border-right:1px solid #bbb;
+}
+
+button.pill-r span {
+border-left-color:#fff;
+}
+
+/* ????? ?????? ???? ? ??? ?????? ????? ??? ?????? ? ?????? */
+.btn:hover span,
+.btn:hover span span,
+.btn:focus span,
+.btn:focus span span {
+cursor: pointer;
+border-color: #9cf !important;
+color: #000;
+}
+
+.btn:active span {
+background-position: 0 -400px;
+outline: none;
+}
+
+.btn:focus,
+.btn:active {
+outline: none;
+}
+
+/* ????? ??? ??????? ??????, ???????? ?????? ?????????? */
+.primary {
+font-weight: bold;
+color: #000;
+}
+
+/*///////////////////////////////////////////////////////*/
+
+
+form a.dot {
+float:left;
+text-decoration:none;
+/*border-bottom:1px dashed #D2782C;*/
+position:absolute;
+margin-top:-25px;
+padding:5px;
+left:700px;
+display: block;
+display:none;
+  border-color:#f4f4f4 #eee #eee #f4f4f4;
+ /* border-style:solid #eee;*/
+  border-width:3px;
+  background:#FFFF99;
+  height:15px;
+}
+/*Polyalarni surish uchun*/
+#steps form p label{
+    float:left;
+    margin-right:5px;
+  /*  line-height:16px;*/
+    color:#666;
+    text-shadow:1px 1px 1px #fff;
+    padding-top:2px;
+}
+/*
+#steps form button {
+    border:none;
+	outline:none;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 1px;
+    color: #ffffff;
+    display: inline;
+    cursor:pointer;
+     margin-left:20px;
+    clear:both;
+    padding: 2px 8px;
+    text-shadow: 0 1px 1px #777;
+    font-weight:bold;
+    font-family: Helvetica,Verdana, sans-serif;
+    font-size:14px;
+    -moz-box-shadow:0px 0px 3px #aaa;
+    -webkit-box-shadow:0px 0px 2px #aaa;
+    box-shadow:0px 0px 3px #aaa;
+    background:#4797ED;
+}
+*/
+/*#steps form textarea:not([name=maqsad]), */
+#steps form input,textarea,
+select{ background: #ffffff; border: solid 1px #bbb; -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; outline: none medium; width: 200px; float:left; padding-top: 3px; padding-bottom: 3px; }
+#steps form textarea {width: 100%;}
+#steps form p #kun
+{
+   Width: 70px;
+	}
+#steps form p #job2,
+#steps form p #jobadres,
+#steps form p #mesto_propis{
+    Width: 412px;
+	}
+
+#steps form p #fileToUpload
+{ Width: 400px;}
+#steps form p #taklifchi{
+    Width: 615px;
+    height:30px;
+}
+
+#steps form p #kem
+{
+    Width: 450px;
+    height:30px;
+}
+
+#steps form input:checked + label {
+color: #f00;
+}
+#steps form input:focus{
+    -moz-box-shadow:0px 0px 3px #aaa;
+    -webkit-box-shadow:0px 0px 3px #aaa;
+    box-shadow:0px 0px 3px #aaa;
+    background-color:#FFFEEF;
+}
+
+
+
+
+#steps form p.submit{
+    background:none;
+    border:none;
+    -moz-box-shadow:none;
+    -webkit-box-shadow:none;
+    box-shadow:none;
+}
+/*
+#steps form button:hover {
+    background:#d8d8d8;
+    color:#666;
+    text-shadow:1px 1px 1px #fff;
+} */
+.mandatory_label { background-color: transparent; background-image: url(../images/asterisk.png); background-repeat: no-repeat; background-position: right center; text-indent: 10px; float: right; padding-right: 10px; display: table-cell; }
+.datagrid .legend { text-align: right; width:150px; }
+.datagrid td {padding: 2px;}
+#steps .datagrid .two_char { width: 40px; }
+#steps .datagrid .four_char {width: 60px;}
+#steps .datagrid .mon_combo { width: 80px; }
+.photo_block { width: 100px; height: 130px; background: #fff no-repeat; -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; outline: none medium; padding: 2px; float: left; border-color: #ccc; border-style: inset; border-width: 1px 2px 2px 1px; }
+.photo_block2 { width: 100px; height: 0px; background: #fff no-repeat; -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; outline: none medium; padding: 2px; float: left; border-color: #ccc; border-style: inset; border-width: 1px 2px 2px 1px; }
+ .remark_label {font-size: 9px;}
+ #infoblock1 {  padding-top: 10px; padding-bottom: 10px; }
+button {padding: 3px 3px 5px;}
+a.button {
+    background: url(../images/bg_button_a.gif) transparent no-repeat scroll top right;
+    color: #444;
+    display: block;
+    float: left;
+    font: normal 12px arial, sans-serif;
+    height: 24px;
+    margin-right: 6px;
+    padding-right: 18px;
+    text-decoration: none;
+}
+a.button span {
+    background: url(../images/bg_button_span.gif) transparent no-repeat;
+    display: block;
+    line-height: 14px;
+    padding: 5px 0 5px 18px;
+}
+a.button:active {
+    background-position: bottom right;
+    color: #000;
+    outline: none;
+}
+a.button:active span {
+    background-position: bottom left;
+    padding: 6px 0 4px 18px;
+}
+.hidden {display: none; }
+textarea {height: 30px;}

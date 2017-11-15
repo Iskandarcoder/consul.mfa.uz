@@ -1,0 +1,110 @@
+/* CSS Document */
+html { background-color: white; background-image: url(../images/Page-BgSimpleGradient.jpg); height: 100%; margin-bottom: 0; }
+body{
+    padding:0;
+    font:bold 12px Verdana, Arial, Helvetica, sans-serif;
+    color:#666;
+    text-align:center;
+}
+form {
+	margin: 0 auto;
+	padding: 0;
+
+}
+td.adrs {
+	border-bottom: 1px dashed #ccc;
+}
+td.left {
+	background: #0066FF;
+	}
+
+div#bar {
+background-image: url(../images/Block3.png);
+background-repeat: repeat-x;
+height: 29px;
+margin:0 auto; /*центрирование страницы*/
+width:900px;
+/*padding-right: 29px;*/
+/*padding-left: 20px;*/
+}
+#wrapper {
+   margin:0 auto; /*центрирование страницы*/
+    width:900px; /*ширина страницы, обязательный параметр, без него margin:0 auto; не работает*/
+
+    background: #FFFFFF;
+    border:1px solid #0066FF; /*граница блока*/
+    padding-bottom:0px;
+    padding-top:0px;
+	font:bold 12px Verdana, Arial,Helvetica, sans-serif; /*свойства шрифта*/
+    color:#666; /*цвет текста*/
+
+}
+div#header {
+	margin:0 auto; /*центрирование страницы*/
+	background-position: 0 0;
+/*	position: absolute;*/
+	width: 900px;
+	height: 110px;
+	background: url('../images/logo.jpg');
+	background-repeat: no-repeat;
+}
+#headerImg {
+	position: relative;
+	left:-380px;
+	top:-130px;
+ margin: 5px 0 0 10px;
+ z-index: 5;
+	}
+div#gmenu {
+		margin:0 auto; /*центрирование страницы*/
+	    width:900px; /*ширина страницы, обязательный параметр, без него margin:0 auto; не работает*/
+		/*position: relative;*/
+	}
+#footer {
+	margin:0 auto; /*центрирование страницы*/
+	background-repeat:no-repeat;
+	background-image: url('../images/Footer.png');
+	width: 900px;
+	height: 100px;
+	bottom:0;
+	left:0;
+}
+
+.adress {
+	border:1px solid #0066FF;
+    background:#FFFF99;
+    margin:0 5px 5px 0;
+    padding:10px;
+    height:350px;
+    width:640px;
+    float:left;
+   /*  line-height:350px;*/
+}
+.adr {
+   font: italic 13px Verdana, Arial,Helvetica, sans-serif; /*свойства шрифта*/
+   color:#666; /*цвет текста*/
+}
+h2{
+            color:#ccc;
+            font-size:16px;
+            text-shadow:1px 1px 1px #fff;
+            padding:5px;
+            text-align:center;
+        }
+.blok
+{
+/*	left: 7px;
+	right: 7px;*/
+	margin:2px 0 20px 0;
+	height: 28px;
+	background-image: url('../images/Block1.png');
+	font-family: Verdana, Arial;
+	font-size: 14px;
+	text-align: center;
+	color:#000000;
+}
+.leftblok {
+	background:#FFFF99;
+	}
+
+

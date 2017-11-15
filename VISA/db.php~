@@ -1,0 +1,10 @@
+<?php
+$host='127.0.0.1';
+$user="root";
+$pass="159753123";
+$base="consul";
+$bd = mysql_connect('127.0.0.1', "root", "159753123") or die("Nemogu:".mysql_error());
+echo "Ishladi chotkacha";
+mysql_select_db($base, $bd) or die("Нет соединение с БД");
+echo "Ishladi chotkacha2";
+?>

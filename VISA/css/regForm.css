@@ -1,0 +1,64 @@
+﻿/*@charset "utf-8";*/
+h1, h2 {font-family:  Verdana,Georgia, serif; font-size:140%; margin-top:0; color: blue; font-weight: bold;}
+h2 { font-size:120%; margin:0px 0 10px; text-align:justify; font-size:110%;}
+
+.form-container { width:500px; margin:0 auto; position:relative; font-family:Verdana; font-size:100%; padding:20px; background-color:#e0e3e2; border:3px solid #abadac; }
+.form-panel { width:500px; height:220px; }
+.form-panel fieldset { width:500px; height:150px; margin:0 auto; padding:36px 0 0; border:3px solid #abadac; background-color:#ffffff; }
+.form-panel label { width:246px; display:block; float:left; text-align:left; font-size:120%;padding-top:0px; margin-right:-90px; font-weight: bold; font-family:  Verdana,Georgia, serif; color: blue;}.form-panel input, .form-panel textarea {font-family:  Verdana,Georgia, serif; float:left; width:200px; margin-bottom:13px; }
+.form-container button { float:right; }
+/*p { margin:0; font-size:75%; position:absolute; left:30px; top:60px; font-weight:bold; }*/
+#amount { position:absolute; right:30px; top:60px; font-size:80%; font-weight:bold; }
+
+
+
+/* Component containers
+----------------------------------*/
+.ui-widget {font-family: Verdana, Georgia, serif; font-size: 1.7em; }
+.ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button {font-family:  Verdana, Georgia, serif;font-style: italic; font-size: 1em; }
+.ui-widget-content { border: 1px solid #aaaaaa; background: #ffffff 50% 50% repeat-x; color: #222222; }
+
+.ui-widget-header { border: 1px solid #aaaaaa; background: #cccccc 50% 50% repeat-x; color: #222222; font-weight: bold; }
+
+
+/* Progressbar
+----------------------------------*/
+.ui-progressbar { height:2em; text-align: left; }
+.ui-progressbar .ui-progressbar-value {margin: -1px; height:100%; }
+/* Layout helpers
+----------------------------------*/
+.ui-helper-hidden { display: none; }
+.ui-helper-hidden-accessible { position: absolute; left: -99999999px; }
+.ui-helper-reset { margin: 0; padding: 0; border: 0; outline: 0; line-height: 1.3; text-decoration: none; font-size: 100%; list-style: none; }
+.ui-helper-clearfix:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
+.ui-helper-clearfix { display: inline-block; }
+/* required comment for clearfix to work in Opera \*/
+* html .ui-helper-clearfix { height:1%; }
+.ui-helper-clearfix { display:block; }
+/* end clearfix */
+
+
+
+/*Мое*/
+
+#thanks { text-align:left; }
+#thanks p {font-size:120%; position:relative; left:0; top:-14px; }
+
+#thanks p.otvet {font-family:  Verdana, Georgia, serif; font-style: bold; font-size:100%; color: blue; font-weight: bold;}
+
+#loading {height:30px}
+#loading img {display:none};
+#btn
+{
+ position:relative;
+    left:70%;
+  border: 1px solid #777777;
+  background: #e5f5fe;
+  color: #1593db;
+  bold 12px  Verdana,'Trebuchet MS';
+  padding-left: 10px;
+  padding-right: 10px;
+  cursor: pointer;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+}

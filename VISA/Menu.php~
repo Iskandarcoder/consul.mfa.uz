@@ -1,0 +1,131 @@
+<style>
+ul#topnav {
+
+/*margin: 10px 0 20px; */
+margin:0px;
+padding: 0;
+
+list-style: none;
+
+font-size: 1.2em;
+font-family:Helvetica,Verdana,Arial,Georgia;
+clear: both;
+
+float: left;
+
+width: 100%;
+
+}
+ul#topnav li{
+
+margin: 0;
+
+padding: 0;
+
+overflow: hidden;
+
+float: left;
+
+height:35px;
+
+}
+ul#topnav a, ul#topnav span {
+
+padding: 10px 20px;
+
+float: left;
+
+text-decoration: none;
+
+color: #FFFFFF;
+
+clear: both;
+
+height: 20px;
+
+line-height: 20px;
+
+background: #1d1d1d;
+
+}
+
+ul#topnav a {	color: #7bc441; }
+
+ul#topnav span {
+
+display: none;
+
+}
+
+ul#topnav.v2 span{
+
+background: url(images/a_bg2.gif) repeat-x left top;
+
+}
+
+ul#topnav.v2 a{
+
+color: #1c8b99;
+
+background: url(images/a_bg2.gif) repeat-x left bottom;
+
+}
+</style>
+
+
+<script type="text/javascript" src="js/jquery.js"></script>
+
+        <script type="text/javascript">
+
+        $(document).ready(function() {
+
+$("#topnav li").prepend("<span></span>"); //Вставляем пустой тег <span> до каждого элемента списка.
+
+
+
+$("#topnav li").each(function() { //Для каждого элемента списка...
+
+var linkText = $(this).find("a").html(); //Находим текст внутри тега
+
+$(this).find("span").show().html(linkText); //Добавляем текст в тег <span>
+
+});
+
+
+
+$("#topnav li").hover(function() {	//При наведении мыши
+
+$(this).find("span").stop().animate({
+
+marginTop: "-40" //Находим тег <span> и перемещаем его вверх на 40px
+
+}, 250);
+
+} , function() { //После того, как курсор убран с элемента...
+
+$(this).find("span").stop().animate({
+
+marginTop: "0" //Возвращаем тег <span> к исходному местоположению (0px)
+
+}, 250);
+
+});
+
+});
+
+</script>
+</head>
+
+<ul id="topnav" class="v2">
+
+  <li><a href="?page=main">Главная</a></li>
+
+  <li><a href="?action=vibor">Консульские услуги</a></li>
+ <li><a href="?action=VIO">Часто задаваемые вопросы</a></li>
+
+ <li><a href="?action=Adresa">Адреса загранучреждений Узбекистана</a></li>
+
+</ul>
+
+
+

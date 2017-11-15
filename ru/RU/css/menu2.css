@@ -1,0 +1,26 @@
+#menu{
+    width: 1200px;
+    height: 52px;
+    background: url("/ru/images/menu-bg.png") repeat-x;
+   border-radius: 15px;
+   box-shadow: 0 3px 5px rgba(0,0,0,0.4), 0 1px 0 #bccf9b inset, 0 -1px 0 #1e311a inset; 
+   margin-top: -15px;
+ 
+}
+#menu ul li{
+    float: left;
+}
+#menu ul li a{
+    font: 15px "Trebuchet MS", tahoma, verdana, arial narrow,    arial; 
+    font-weight: bold;
+    color: #fefefe;
+    text-decoration: none;
+    display: block;
+    padding: 15px 40px;
+    text-shadow: 0 -1px 0 #000;
+    margin-top: 1px;
+}
+#menu ul li a:hover{
+    background: url("/ru/images/h-menu-bg.png")  repeat-x;
+    border-radius: 10px 10px;
+}
