@@ -7,7 +7,7 @@
 
 <body>
 <div class="vibor container well well-lg">
-<h5>O`zbekiston Respublikasi dsadsadfsafsafuqarolari uchun interaktiv xizmatlar: </h5>
+<h5>O`zbekiston Respublikasi fuqarolari uchun interaktiv xizmatlar: </h5>
 <div class="k-uslugi">
 
 <div class="row">
